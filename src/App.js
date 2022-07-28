@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          HERBINTON BAKTIAR SIMARMATA - 152235865100420
         </p>
         <a
           className="App-link"
