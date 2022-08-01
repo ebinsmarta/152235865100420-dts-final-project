@@ -1,23 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import AuthBackend from "./components/AuthBackend";
+import AuthFrontend from "./components/AuthFrontend";
+import Home from "./containers/Home";
+import Login from "./containers/Login";
+import Main from "./containers/Main";
+import MovieData from "./containers/MovieData";
+import Registration from "./containers/Registration";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          HERBINTON BAKTIAR SIMARMATA - 152235865100420
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <AuthFrontend>
+              <Main />
+            </AuthFrontend>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <AuthFrontend>
+              <Login />
+            </AuthFrontend>
+          }
+        />
+        <Route
+          path="/registration"
+          element={
+            <AuthFrontend>
+              <Registration />
+            </AuthFrontend>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <AuthBackend>
+              <Home />
+            </AuthBackend>
+          }
+        />
+        <Route
+          path="/movie/:id"
+          element={
+            <AuthBackend>
+              <MovieData />
+            </AuthBackend>
+          }
+        />
+      </Routes>
     </div>
   );
 }
