@@ -15,19 +15,19 @@ const Home = () => {
                 <Main>
                     <Section>
                         <Box mb={5}>
-                            <Typography variant="h6" component="h1">RESEP MASAKAN TERBARU</Typography>
+                            <Typography variant="h6" component="h1">RESEP TERBARU</Typography>
                             <Divider sx={{ my: 1 }} />
-                            <MovieCarousel pageAktif="1" />
+                            <MovieCarousel type="now_playing" />
                         </Box>
                         <Box mb={5}>
                             <Typography variant="h6" component="h1">KATEGORI RESEP MASAKAN</Typography>
                             <Divider sx={{ my: 1 }} />
-                            <MovieCarousel pageAktif="2" />
+                            <MovieCarousel type="top_rated" />
                         </Box>
                         <Box mb={5}>
-                            <Typography variant="h6" component="h1">RESEP MASAKAN FAVORIT</Typography>
+                            <Typography variant="h6" component="h1">RESEP TERFAVORIT</Typography>
                             <Divider sx={{ my: 1 }} />
-                            <MovieCarousel pageAktif="3" />
+                            <MovieCarousel type="upcoming" />
                         </Box>
                     </Section>
                 </Main>
