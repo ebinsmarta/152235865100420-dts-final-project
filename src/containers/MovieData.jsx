@@ -2,7 +2,7 @@ import { Box, Card, CardContent, CardMedia, Divider, Grid, Rating, Typography } 
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
 import Body from "../components/Body";
@@ -15,7 +15,7 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 const MovieData = () => {
-    const param = useParams();
+    // const param = useParams();
 
     const [movie, setMovie] = useState({ production_companies: [] });
     const [movieVideo, setmovieVideo] = useState({ production_companies: [] });
@@ -23,17 +23,9 @@ const MovieData = () => {
     useEffect(() => {
         (async () => {
 
-            const result = await axios.get('https://api.themoviedb.org/3/movie/' + param.id, {
-                headers: {
-                    Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-                }
-            });
+            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipes');
 
-            const resultVideo = await axios.get('https://api.themoviedb.org/3/movie/' + param.id + '/videos', {
-                headers: {
-                    Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-                }
-            });
+            const resultVideo = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipes');
 
             setMovie(result.data);
             setmovieVideo(resultVideo.data);

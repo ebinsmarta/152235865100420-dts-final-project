@@ -5,7 +5,7 @@ import Home from "./containers/Home";
 import Login from "./containers/Login";
 // import Main from "./containers/Main";
 import MovieData from "./containers/MovieData";
-import Registration from "./containers/Registration";
+
 
 function App() {
   return (
@@ -27,14 +27,7 @@ function App() {
             </AuthFrontend>
           }
         />
-        <Route
-          path="/registration"
-          element={
-            <AuthFrontend>
-              <Registration />
-            </AuthFrontend>
-          }
-        />
+        
         <Route
           path="/home"
           element={
