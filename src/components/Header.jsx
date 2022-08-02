@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Toolbar} from "@mui/material";
 import { Container } from "@mui/system";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useSnackbar } from "notistack";
@@ -45,7 +45,7 @@ const Header = ({ logoLink }) => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box flexGrow="1">
-                        <Typography
+                        {/* <Typography
                             variant="h6"
                             noWrap
                             component="a"
@@ -55,7 +55,11 @@ const Header = ({ logoLink }) => {
                             }}
                         >
                             Resep MasakanKU
-                        </Typography>
+                        </Typography> */}
+
+                        <Button color="warning" variant="contained"  >Resep</Button><Button color="success" variant="contained"  >Kuy</Button>
+
+
                     </Box>
                     {user.isLoggedIn ?
                         <Box>

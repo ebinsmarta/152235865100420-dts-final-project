@@ -1,4 +1,4 @@
-import { Box, Divider, Typography } from "@mui/material";
+import { Box, Divider,Button } from "@mui/material";
 import { Fragment } from "react";
 import Body from "../components/Body";
 import MovieCarousel from "../components/carousel/MovieCarousel";
@@ -15,17 +15,20 @@ const Home = () => {
                 <Main>
                     <Section>
                         <Box mb={5}>
-                            <Typography variant="h6" component="h1"><b>RESEP DESSERT</b></Typography>
+                        <Button color="warning" variant="contained" fullWidth >---------------------------------------------------- : RESEP DESSERT : ----------------------------------------------------</Button>
+                            {/* <Typography variant="h6" component="h1"><b>RESEP DESSERT</b></Typography> */}
                             <Divider sx={{ my: 1 }} />
                             <MovieCarousel kategori ="resep-dessert" />
                         </Box>
                         <Box mb={5}>
-                            <Typography variant="h6" component="h1">RESEP SEAFOOD</Typography>
+                        <Button color="warning" variant="contained" fullWidth > ---------------------------------------------------- : RESEP MASAKAN SEAFOOD : ----------------------------------------------------</Button>
+                            {/* <Typography variant="h6" component="h1"><b>RESEP SEAFOOD</b></Typography> */}
                             <Divider sx={{ my: 1 }} />
                             <MovieCarousel kategori ="resep-seafood" />
                         </Box>
                         <Box mb={5}>
-                            <Typography variant="h6" component="h1">RESEP MASAKAN TRADISIONAL</Typography>
+                        <Button color="warning" variant="contained" fullWidth > ---------------------------------------------------- : RESEP MASAKAN TRADISIONAL : ----------------------------------------------------</Button>
+                            {/* <Typography variant="h6" component="h1"><b>RESEP MASAKAN TRADISIONAL</b></Typography> */}
                             <Divider sx={{ my: 1 }} />
                             <MovieCarousel kategori ="masakan-tradisional" />
                         </Box>
