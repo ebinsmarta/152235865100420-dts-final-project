@@ -37,11 +37,11 @@ function App() {
           }
         />
         <Route
-          path="/movie/:id"
+          path="/resep/key"
           element={
-            <AuthBackend>
+            <AuthFrontend>
               <MovieData />
-            </AuthBackend>
+            </AuthFrontend>
           }
         />
       </Routes>

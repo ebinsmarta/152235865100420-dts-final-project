@@ -14,11 +14,7 @@ const MovieCarousel = ({ type }) => {
     useEffect(() => {
         (async () => {
 
-            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipes', {
-                headers: {
-                    Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-                }
-            });
+            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/category/recipes/'+ type);
 
             setMovieNowPlaying(result.data.results);
 

@@ -2,7 +2,7 @@ import { Box, Card, CardContent, CardMedia, Divider, Grid, Rating, Typography } 
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
 import Body from "../components/Body";
@@ -15,20 +15,16 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 const MovieData = () => {
-    // const param = useParams();
+    const param = useParams();
 
-    const [movie, setMovie] = useState({ production_companies: [] });
-    const [movieVideo, setmovieVideo] = useState({ production_companies: [] });
+    const [movie, setMovie] = useState([]);
 
     useEffect(() => {
         (async () => {
 
-            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipes');
+            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipe/' + param.key);
 
-            const resultVideo = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipes');
-
-            setMovie(result.data);
-            setmovieVideo(resultVideo.data);
+            setMovie(result.data.result);
 
         })();
     }, []);
@@ -45,7 +41,7 @@ const MovieData = () => {
                                     <CardMedia
                                         component="img"
                                         height="600"
-                                        image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                                        image={`${movie.thumb}`}
                                         alt="movie backdrop"
                                     />
                                 </Card>
@@ -56,25 +52,23 @@ const MovieData = () => {
                                         <Box display="flex" justifyContent="space-between" alignItems="center">
                                             <Box>
                                                 <Typography variant="h5" component="h1">{movie.title}</Typography>
-                                                <Typography variant="body1">{movie.tagline}</Typography>
-                                                <Typography variant="caption" color="GrayText">IMDB ID : {movie.imdb_id}</Typography>
+                                                <Typography variant="body1">{movie.servings}</Typography>
+                                                <Typography variant="caption" color="GrayText">PORSI {movie.times}</Typography>
                                             </Box>
-                                            <Box>
-                                                <Rating name="read-only" value={5 * movie.vote_average / 10} readOnly />
-                                            </Box>
+                                            
                                         </Box>
                                         <Divider sx={{ my: 2 }} />
                                         <Box my={3}>
-                                            <Typography variant="body2">Rilis pada tanggal : {movie.release_date}</Typography>
+                                            <Typography variant="body2">Rilis pada tanggal : {movie.datePublished}</Typography>
                                             <Divider sx={{ marginY: 0.3 }} />
-                                            <Typography variant="body1">{movie.overview}</Typography>
+                                            <Typography variant="body1">{movie.Mudah}</Typography>
                                         </Box>
                                         <Box my={3}>
                                             <Typography
                                                 variant="body2">
                                                 Budget&nbsp;:&nbsp;
                                                 <NumberFormat
-                                                    value={movie.budget}
+                                                    value={movie.desc}
                                                     displayType={'text'}
                                                     thousandSeparator={true}
                                                 />
@@ -83,7 +77,7 @@ const MovieData = () => {
                                                 variant="body2">
                                                 Pendapatan&nbsp;:&nbsp;
                                                 <NumberFormat
-                                                    value={movie.revenue}
+                                                    value={movie.desc}
                                                     displayType={'text'}
                                                     thousandSeparator={true}
                                                 />
@@ -97,7 +91,7 @@ const MovieData = () => {
                                                 <iframe
                                                     width="100%"
                                                     height="480"
-                                                    src={`https://www.youtube.com/embed/${movieVideo.key}`}
+                                                    src={`#`}
                                                     frameBorder="0"
                                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                     allowFullScreen
@@ -106,7 +100,7 @@ const MovieData = () => {
                                             </Box>
                                         </Box>
                                         <Box my={3}>
-                                            <Typography variant="h6" component="h6">Perusahaan Produksi Film</Typography>
+                                            <Typography variant="h6" component="h6">Bumbu Masakan</Typography>
                                             <Typography variant="body2">Berikut daftar rumah produksi film ini</Typography>
                                         </Box>
                                         <Box mt={2}>
@@ -138,22 +132,22 @@ const MovieData = () => {
                                                     },
                                                 }}
                                             >
-                                                {movie.production_companies.map((value, index) => (
+                                                {movie.map((value, index) => (
                                                     <SwiperSlide key={index}>
                                                         <Card>
                                                             <CardContent>
                                                                 <Box sx={{ minHeight: 230 }}>
                                                                     <Box minHeight={100} display="flex" alignItems="center" justifyContent="center" flexGrow={1} sx={{ minHeight: 180 }}>
-                                                                        {value.logo_path ?
+                                                                        {value.thumb ?
                                                                             <CardMedia
                                                                                 component="img"
-                                                                                image={`https://image.tmdb.org/t/p/w500/${value.logo_path}`}
+                                                                                image={`${value.thumb}`}
                                                                                 alt="movie backdrop"
                                                                             />
                                                                             :
                                                                             <CardMedia
                                                                                 component="img"
-                                                                                image={`https://www.google.com/search?q=image+placeholder+png+transparent&tbm=isch&ved=2ahUKEwiMkL374Yf5AhUX_zgGHQHdBYgQ2-cCegQIABAA&oq=image+placeholder+png+&gs_lcp=CgNpbWcQARgAMgQIABATMgYIABAeEBMyCAgAEB4QBRATMggIABAeEAUQEzIICAAQHhAFEBMyCAgAEB4QBRATMggIABAeEAUQEzIICAAQHhAIEBMyCAgAEB4QCBATMggIABAeEAgQEzoECCMQJzoGCAAQHhAHOgYIABAeEAhQzQFYzQFg7QtoAHAAeACAAVOIAaUBkgEBMpgBAKABAaoBC2d3cy13aXotaW1nwAEB&sclient=img&ei=7hzYYozhApf-4-EPgbqXwAg#imgrc=4lebkfTV2hZWBM}`}
+                                                                                image={`${value.thumb}`}
                                                                                 alt="movie backdrop"
                                                                             />
                                                                         }
