@@ -17,17 +17,17 @@ const Home = () => {
                         <Box mb={5}>
                             <Typography variant="h6" component="h1"><b>RESEP DESSERT</b></Typography>
                             <Divider sx={{ my: 1 }} />
-                            <MovieCarousel type="resep-dessert" />
+                            <MovieCarousel kategori ="resep-dessert" />
                         </Box>
                         <Box mb={5}>
                             <Typography variant="h6" component="h1">RESEP SEAFOOD</Typography>
                             <Divider sx={{ my: 1 }} />
-                            <MovieCarousel type="resep-seafood" />
+                            <MovieCarousel kategori ="resep-seafood" />
                         </Box>
                         <Box mb={5}>
                             <Typography variant="h6" component="h1">RESEP MASAKAN TRADISIONAL</Typography>
                             <Divider sx={{ my: 1 }} />
-                            <MovieCarousel type="masakan-tradisional" />
+                            <MovieCarousel kategori ="masakan-tradisional" />
                         </Box>
                     </Section>
                 </Main>

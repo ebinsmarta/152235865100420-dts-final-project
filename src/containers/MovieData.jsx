@@ -1,8 +1,8 @@
-import { Box, Card, CardContent, CardMedia, Divider, Grid, Rating, Typography } from "@mui/material";
+import { Box, Card, CardContent, CardMedia, Divider, Grid, Typography } from "@mui/material";
 import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import NumberFormat from "react-number-format";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
 import Body from "../components/Body";
@@ -15,16 +15,16 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 
 const MovieData = () => {
-    const param = useParams();
+    // const param = useParams();
 
     const [movie, setMovie] = useState([]);
 
     useEffect(() => {
         (async () => {
 
-            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipe/' + param.key);
+            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipe/');
 
-            setMovie(result.data.result);
+            setMovie(result.data);
 
         })();
     }, []);

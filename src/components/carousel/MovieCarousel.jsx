@@ -7,19 +7,19 @@ import Item from "./Item";
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-const MovieCarousel = ({ type }) => {
+const MovieCarousel = ({ kategori }) => {
 
     const [movieNowPlaying, setMovieNowPlaying] = useState([]);
 
     useEffect(() => {
         (async () => {
 
-            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/category/recipes/'+ type);
+            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/category/recipes/' + kategori);
 
             setMovieNowPlaying(result.data.results);
 
         })();
-    }, []);
+    });
 
     return (
         <Fragment>

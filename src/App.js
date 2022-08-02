@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import AuthBackend from "./components/AuthBackend";
+
 import AuthFrontend from "./components/AuthFrontend";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
