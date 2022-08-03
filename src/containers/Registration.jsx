@@ -38,13 +38,13 @@ const Registration = () => {
 				<Header />
 				<Main>
 					<Grid container justifyContent="center">
-						<Grid item xs={12} sm={6} md={4}>
+						<Grid item xs={12} sm={6} md={6}>
 							<Box my={5}>
 								<Card sx={{ bgcolor: '#222831' }} component="form" onSubmit={submitRegistration}>
 									<Box p={2}>
 										<Box my={3}>
 											<Box mb={5}>
-												<Typography variant="h6" component="h6" align="center"> Selamat Datang di</Typography>
+												<Typography variant="h6" component="h6" align="center"> Silahkan Registrasi </Typography>
 												<Typography variant="h4" component="h1" align="center"> Resep MasakanKU</Typography>
 												<Typography variant="body2" color="GrayText" align="center"> Isikan form dibawah untuk registrasi </Typography>
 											</Box>

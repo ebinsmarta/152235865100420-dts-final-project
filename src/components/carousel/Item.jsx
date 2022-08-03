@@ -13,7 +13,7 @@ const Item = ({ data }) => {
                 component="img"
                 height="400"
                 image={`${data.thumb}`}
-                alt="green iguana"
+                alt="resep background"
             />
             <CardContent>
                 <Box>

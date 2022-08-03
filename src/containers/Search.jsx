@@ -1,4 +1,4 @@
-import { Box, Button, Card, Divider, Grid, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, Grid, TextField, Typography } from "@mui/material";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useSnackbar } from "notistack";
 import { Fragment, useState } from "react";
@@ -38,41 +38,32 @@ const Registration = () => {
 				<Header />
 				<Main>
 					<Grid container justifyContent="center">
-						<Grid item xs={12} sm={6} md={6}>
-							<Box my={5}>
+						<Grid item xs={12} sm={6} md={8}>
+							<Box my={6}>
 								<Card sx={{ bgcolor: '#222831' }} component="form" onSubmit={submitRegistration}>
 									<Box p={2}>
 										<Box my={3}>
 											<Box mb={5}>
-												<Typography variant="h6" component="h1" align="center"> Selamat Datang di</Typography>
+												<Typography variant="h6" component="h1" align="center"> Pencarian</Typography>
 												<Typography variant="h4" component="h1" align="center"> Resep Kuy</Typography>
-												<Typography variant="body2" color="GrayText" align="center"> Silahkan Login untuk melanjutkan </Typography>
+												<Typography variant="body2" color="GrayText" align="center"> Silahkan etik Resep apa yang Anda cari </Typography>
 											</Box>
 											<Box>
 												<TextField
 													margin="dense"
 													fullWidth
 													variant="filled"
-													label="Ketik Email Anda"
+													label="Ketik disini....."
 													sx={{ input: { color: 'white' } }}
 													type="email"
 													onChange={(e) => setField((s) => ({ ...s, email: e.target.value }))}
 												/>
-												<TextField
-													margin="dense"
-													fullWidth
-													variant="filled"
-													label="Ketik Password Anda"
-													sx={{ input: { color: 'white' } }}
-													type="password"
-													onChange={(e) => setField((s) => ({ ...s, password: e.target.value }))}
-												/>
+												
 											</Box>
 											<Box mt={5}>
-												<Button color="success" variant="contained" fullWidth type="submit"> login </Button>
-												<Divider sx={{ marginY: 1, color: 'white' }}> <Typography color="GrayText"></Typography> </Divider>
-												<Button color="warning" variant="contained" fullWidth type="submit" onClick={() => navigate('/registration')}> registrasi </Button>
-											</Box>
+												<Button color="warning" variant="contained" fullWidth type="submit"> Cari </Button>
+												<Button color="warning" variant="contained" fullWidth type="submit" onClick={() => navigate('/home')}> Home </Button>
+												</Box>
 										</Box>
 									</Box>
 								</Card>
