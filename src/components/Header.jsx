@@ -34,7 +34,7 @@ const Header = ({ logoLink }) => {
     const onSignOut = async () => {
         try {
             await signOut(getAuth());
-            enqueueSnackbar('Terima Kasih Sudah Berkunjung..', { variant: 'success' });
+            enqueueSnackbar('Terima Kasih Sudah Berkunjung', { variant: 'success' });
             navigate('/');
         } catch (error) {
             console.log('error : ', error);
@@ -55,7 +55,7 @@ const Header = ({ logoLink }) => {
                     </Box>
                     {user.isLoggedIn ?
                         <Box>
-                            <Button color="warning"  variant="contained"   onClick={() => navigate('/cari')}> Searching</Button>
+                            <Button color="warning"  variant="contained"   onClick={() => navigate('/cari')}> Searching...</Button>&nbsp;
                             <Button color="success"  variant="contained"   onClick={onSignOut}> Logout</Button>
                             
                         </Box>

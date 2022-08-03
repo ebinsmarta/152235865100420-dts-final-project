@@ -9,7 +9,7 @@ import Main from "../components/Main";
 // import { auth } from "../firebase";
 import logo from '../asset/image/logo1.png';
 
-const Registration = () => {
+const Search = () => {
 
 
 	const navigate = useNavigate()
@@ -20,9 +20,7 @@ const Registration = () => {
 
 	const submitRegistration = async (e) => {
 		e.preventDefault();
-
-			
-				navigate("/search/"(field.email));
+		navigate("/search/"(field.email));
 	}
 
 	return (
@@ -47,13 +45,13 @@ const Registration = () => {
 													variant="filled"
 													label="Cari disini....."
 													sx={{ input: { color: 'white' } }}
-													type="email"
+													type="text"
 													onChange={(e) => setField((s) => ({ ...s, email: e.target.value }))}
 												/>
 												
 											</Box>
 											<Box mt={5}>
-												<Button color="warning" variant="contained" fullWidth type="submit"> Search... </Button>
+												<Button color="warning" variant="contained" fullWidth type="submit" onClick={() => navigate('/search')}> Search... </Button>
 												
 												</Box>
 										</Box>
@@ -68,4 +66,4 @@ const Registration = () => {
 	)
 }
 
-export default Registration;
+export default Search;
