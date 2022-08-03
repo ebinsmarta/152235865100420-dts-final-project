@@ -1,55 +1,45 @@
-import MainComponent from "../components/Main";
-import { Fragment, useEffect, useRef } from "react"
-import Body from "../components/Body"
-import Header from "../components/Header"
-import Section from "../components/Section"
-import { Box, Button, Card, CardContent, Divider, Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import Lottie from "lottie-web";
+import { Box, Divider,Button } from "@mui/material";
+import { Fragment } from "react";
+import Body from "../components/Body";
+import MovieCarousel from "../components/carousel/MovieCarousel";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import Main from "../components/Main";
+import Section from "../components/Section";
+import logo from '../asset/image/logo.png';
 
-const Main = () => {
-    const navigate = useNavigate();
-
-    const container = useRef(null);
-
-    useEffect(() => {
-        Lottie.loadAnimation({
-            container: container.current,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            animationData: require('../asset/animation/45732-cinema-animation.json')
-        });
-    }, []);
-
+const Home = () => {
     return (
         <Fragment>
             <Body>
-                <Header />
-                <MainComponent>
+                <Header/>
+                <Main>
                     <Section>
-                        <Grid container justifyContent="center">
-                            <Grid item xs={12} md={4}>
-                                <Card sx={{ bgcolor: '#222831' }}>
-                                    <CardContent sx={{ textAlign: 'center' }}>
-                                        <Typography align="center" variant="h6" component="h6"> Selamat Datang di</Typography>
-                                        <Typography align="center" variant="h4" component="h1"> Resep MasakanKU</Typography>
-                                        <Typography align="center" variant="body1"> Informasi Lengkap Resep Masakan enak dan terupdate hanya ada disini </Typography>
-    
-                                        <Box mt={10}>
-                                            <Button fullWidth variant="contained" color="success" onClick={() => { navigate('/login') }}> Login </Button>
-                                            <Divider sx={{ marginY: 1, color: 'white' }}> <Typography color="GrayText"></Typography> </Divider>
-                                            <Button fullWidth variant="contained" color="warning" onClick={() => { navigate('/registration') }}> registrasi </Button>
-                                        </Box>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                        </Grid>
+                        <Box mb={5}>
+                        <Button color="warning" variant="contained" fullWidth > <img src={logo} height="50" alt="Logo"/> &nbsp;&nbsp;&nbsp;&nbsp; RESEP DESSERT &nbsp;&nbsp;&nbsp;&nbsp;<img src={logo} height="50" alt="Logo"/> </Button>
+                            {/* <Typography variant="h6" component="h1"><b>RESEP DESSERT</b></Typography> */}
+                            <Divider sx={{ my: 1 }} />
+                            <MovieCarousel kategori ="resep-dessert" />
+                        </Box>
+                        <Box mb={5}>
+                        <Button color="warning" variant="contained" fullWidth > <img src={logo} height="50" alt="Logo"/> &nbsp;&nbsp;&nbsp;&nbsp; RESEP MASAKAN SEAFOOD &nbsp;&nbsp;&nbsp;&nbsp;<img src={logo} height="50" alt="Logo"/> </Button>
+                        
+                            {/* <Typography variant="h6" component="h1"><b>RESEP SEAFOOD</b></Typography> */}
+                            <Divider sx={{ my: 1 }} />
+                            <MovieCarousel kategori ="resep-seafood" />
+                        </Box>
+                        <Box mb={5}><Button color="warning" variant="contained" fullWidth > <img src={logo} height="50" alt="Logo"/> &nbsp;&nbsp;&nbsp;&nbsp; RESEP MASAKAN TRADISIONAL &nbsp;&nbsp;&nbsp;&nbsp;<img src={logo} height="50" alt="Logo"/> </Button>
+                        
+                            {/* <Typography variant="h6" component="h1"><b>RESEP MASAKAN TRADISIONAL</b></Typography> */}
+                            <Divider sx={{ my: 1 }} />
+                            <MovieCarousel kategori ="masakan-tradisional" />
+                        </Box>
                     </Section>
-                </MainComponent>
+                </Main>
+                <Footer />
             </Body>
-        </Fragment >
+        </Fragment>
     )
 }
 
-export default Main;
+export default Home;

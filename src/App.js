@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-
+import AuthBackend from "./components/AuthBackend";
 import AuthFrontend from "./components/AuthFrontend";
 import Home from "./containers/Home";
 import Login from "./containers/Login";
 import Search from "./containers/Search";
-// import Main from "./containers/Main";
+ import Main from "./containers/Main";
 import Registration from "./containers/Registration";
 import MovieData from "./containers/MovieData";
 import SearchData from "./containers/SearchData";
@@ -18,7 +18,7 @@ function App() {
           path="/"
           element={
             <AuthFrontend>
-              <Home />
+              <Main />
             </AuthFrontend>
           }
         />
@@ -59,9 +59,9 @@ function App() {
         <Route
           path="/home"
           element={
-            <AuthFrontend>
+            <AuthBackend>
               <Home />
-            </AuthFrontend>
+            </AuthBackend>
           }
         />
         <Route

@@ -1,36 +1,28 @@
 import { Box, Button, Card, Grid, TextField, Typography } from "@mui/material";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { useSnackbar } from "notistack";
+// import { signInWithEmailAndPassword } from "firebase/auth";
+// import { useSnackbar } from "notistack";
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Body from "../components/Body";
 import Header from "../components/Header";
 import Main from "../components/Main";
-import { auth } from "../firebase";
+// import { auth } from "../firebase";
 import logo from '../asset/image/logo1.png';
 
 const Registration = () => {
 
-	const { enqueueSnackbar } = useSnackbar();
+
 	const navigate = useNavigate()
 
 	const [field, setField] = useState({
 		email: '',
-		password: '',
 	});
 
 	const submitRegistration = async (e) => {
 		e.preventDefault();
 
-		try {
-			const user = await signInWithEmailAndPassword(auth, field.email, field.password);
-			if (user) {
-				enqueueSnackbar('Hallo, Selamat datang di ResepQ', { variant: 'success' });
-				navigate("/home");
-			}
-		} catch (error) {
-			enqueueSnackbar('Oops, kombinasi email dan password salah', { variant: 'info' });
-		}
+			
+				navigate("/search/"(field.email));
 	}
 
 	return (
@@ -53,7 +45,7 @@ const Registration = () => {
 													margin="dense"
 													fullWidth
 													variant="filled"
-													label="Ketik disini....."
+													label="Cari disini....."
 													sx={{ input: { color: 'white' } }}
 													type="email"
 													onChange={(e) => setField((s) => ({ ...s, email: e.target.value }))}
@@ -61,7 +53,7 @@ const Registration = () => {
 												
 											</Box>
 											<Box mt={5}>
-												<Button color="warning" variant="contained" fullWidth type="submit" onClick={() => navigate('/search')}> Search... </Button>
+												<Button color="warning" variant="contained" fullWidth type="submit"> Search... </Button>
 												
 												</Box>
 										</Box>

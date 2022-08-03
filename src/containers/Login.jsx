@@ -25,7 +25,7 @@ const Registration = () => {
 		try {
 			const user = await signInWithEmailAndPassword(auth, field.email, field.password);
 			if (user) {
-				enqueueSnackbar('Hallo, Selamat datang di ResepQ', { variant: 'success' });
+				enqueueSnackbar('Hallo, Selamat datang di Resep Chef Kuy', { variant: 'success' });
 				navigate("/home");
 			}
 		} catch (error) {
