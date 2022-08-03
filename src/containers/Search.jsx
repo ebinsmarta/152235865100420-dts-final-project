@@ -7,6 +7,7 @@ import Body from "../components/Body";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import { auth } from "../firebase";
+import logo from '../asset/image/logo1.png';
 
 const Registration = () => {
 
@@ -43,10 +44,9 @@ const Registration = () => {
 								<Card sx={{ bgcolor: '#222831' }} component="form" onSubmit={submitRegistration}>
 									<Box p={2}>
 										<Box my={3}>
-											<Box mb={5}>
+											<Box>
 												<Typography variant="h6" component="h1" align="center"> Pencarian</Typography>
-												<Typography variant="h4" component="h1" align="center"> Resep Kuy</Typography>
-												<Typography variant="body2" color="GrayText" align="center"> Silahkan etik Resep apa yang Anda cari </Typography>
+												<center><img src={logo} height="120" alt="Logo"/></center>												
 											</Box>
 											<Box>
 												<TextField
