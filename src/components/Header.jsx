@@ -21,29 +21,20 @@ const Header = ({ logoLink }) => {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box flexGrow="1">
-                        {/* <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                textDecoration: "none",
-                            }}
-                        >
-                            Resep MasakanKU
-                        </Typography> */}
-
-                        {/* <Button color="warning" variant="contained"  >Resep</Button><Button color="success" variant="contained"  >Kuy</Button> */}
                     <img src={logo} height="60" alt="Logo"/>
                     </Box>
+                    <Box flexGrow="12">
+                    <Button color="primary"   onClick={() => navigate('/home')}> Home </Button>
+                    <Button color="primary"   onClick={() => navigate('/registration')}> Registrasi </Button>
+                    <Button color="primary"   onClick={() => navigate('/login')}> Login </Button>
+                    </Box>
+                  
                     
                     <Box>
-                    <Button color="warning"   onClick={() => navigate('/cari')}> Pencarian... </Button>
-                            
-                        </Box>
-                        <Button color="warning" variant="contained"  onClick={() => navigate('/login')}> Login </Button>
+                    <Button color="warning"  variant="contained"   onClick={() => navigate('/cari')}> Searching</Button>
+                    </Box>
+                      
                         
-                        <Box></Box>
                     
                 </Toolbar>
             </Container>

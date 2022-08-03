@@ -19,7 +19,6 @@ const MovieData = () => {
 
             const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/recipe/' + param.key );
             setMovie(result.data.results);
-            
 
         })();
     });

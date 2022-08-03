@@ -7,6 +7,7 @@ import Search from "./containers/Search";
 // import Main from "./containers/Main";
 import Registration from "./containers/Registration";
 import MovieData from "./containers/MovieData";
+import SearchData from "./containers/SearchData";
 
 
 function App() {
@@ -42,6 +43,15 @@ function App() {
           element={
             <AuthFrontend>
               <Search />
+            </AuthFrontend>
+          }
+        />
+
+<Route
+          path="/search"
+          element={
+            <AuthFrontend>
+              <SearchData />
             </AuthFrontend>
           }
         />

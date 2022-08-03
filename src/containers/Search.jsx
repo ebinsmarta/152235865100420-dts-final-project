@@ -61,8 +61,8 @@ const Registration = () => {
 												
 											</Box>
 											<Box mt={5}>
-												<Button color="warning" variant="contained" fullWidth type="submit"> Cari </Button>
-												<Button color="success" variant="contained" fullWidth type="submit" onClick={() => navigate('/home')}> Home </Button>
+												<Button color="warning" variant="contained" fullWidth type="submit" onClick={() => navigate('/search')}> Search... </Button>
+												
 												</Box>
 										</Box>
 									</Box>

@@ -2,28 +2,25 @@ import axios from "axios";
 import { Fragment, useEffect, useState } from "react";
 import { Autoplay } from 'swiper/core';
 import { Swiper, SwiperSlide } from "swiper/react";
-import Item from "./Item";
+import Resep from "./Resep";
+// import { useParams } from "react-router-dom";
 
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-const ResepCarousel = ({ type }) => {
-
+const MovieCarousel = ({ kategori }) => {
+    // const param = useParams();
     const [movieNowPlaying, setMovieNowPlaying] = useState([]);
 
     useEffect(() => {
         (async () => {
 
-            const result = await axios.get('https://api.themoviedb.org/3/movie/' + type, {
-                headers: {
-                    Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
-                }
-            });
+            const result = await axios.get('https://masak-apa-tomorisakura.vercel.app/api/category/recipes/' + kategori);
 
             setMovieNowPlaying(result.data.results);
 
         })();
-    }, []);
+    });
 
     return (
         <Fragment>
@@ -57,7 +54,7 @@ const ResepCarousel = ({ type }) => {
             >
                 {movieNowPlaying.map((value, index) => (
                     <SwiperSlide key={index}>
-                        <Item data={value} />
+                        <Resep data={value} />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -65,4 +62,4 @@ const ResepCarousel = ({ type }) => {
     );
 }
 
-export default ResepCarousel;
+export default MovieCarousel;
